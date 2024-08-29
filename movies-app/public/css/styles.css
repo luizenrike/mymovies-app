@@ -1,0 +1,133 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    background-color: #04131E;
+    overflow-x: hidden;
+}
+
+.text-white-title{
+    color: white;
+    font: bold;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.card{
+    border: none;
+    width: 150px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto; 
+}
+
+.card-body {
+    border: none;
+}
+
+.container{
+    border: none;
+}
+
+
+
+.font-color{
+    color:#c6c6c6;
+}
+
+.img-card {
+    width: 100%;
+    height: auto; 
+    object-fit: cover; 
+}
+
+.card-bg{
+    background-color:#04131E;
+}
+
+.list-genre{
+    background-color: #04131E;
+    color: white;
+}
+
+.zoom-card {
+    border: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.zoom-card:hover {
+    border: none;
+    transform: scale(1.1);
+}
+
+
+.small-card{
+    width: 150px;
+    height: 200px;
+}
+
+.scroll-container {
+    display: flex;
+    width: auto;
+    height: 300px;
+    flex-wrap: nowrap; 
+    overflow-x: auto; 
+    overflow-y: hidden;
+    padding: 10px;
+    border: none;
+    background-color: #04131E;
+    scroll-behavior: smooth; 
+}
+
+.scroll-container::-webkit-scrollbar {
+    height: 8px; 
+    background-color: #0a2a41;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background-color: #222123; 
+    border-radius: 10px; 
+}
+
+.scroll-container card {
+    margin-right: 10px;
+}
+
+
+.pagination-wrapper .pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-wrapper .page-link {
+    padding: 0.5rem 0.75rem;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+    font-size: 1rem;
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+
+.pagination-wrapper .page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.pagination-wrapper .page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    background-color: #fff;
+    border-color: #dee2e6;
+}
+
+.pagination-sm .page-link {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
