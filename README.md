@@ -7,7 +7,7 @@
 7. Deploy realizado na Azure na URL: https://mymoviesapp.azurewebsites.net/
 
 # Instruções para Execução do Projeto Localmente
-## Passo 1: Criar o Arquivo `.env`
+## Passo 1: Clone o projeto e navegue até a pasta raiz, em seguida crie o arquivo `.env`
 
 1. Faça uma cópia do arquivo `.env.example` e nomeie-a como `.env`.
 
