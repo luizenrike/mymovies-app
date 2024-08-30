@@ -1,9 +1,10 @@
 # Sobre o projeto:
 1. Construído com PHP com o framework Laravel;
-2. Utilização do cache para evitar algumas chamadas recorrentes na API do TMDB para buscar gêneros de filmes, filmes populares e filmes mais bem avaliados;
-3. Autenticação de usuários JetStream;
-4. Banco de dados hospedado na Azure Cloud;
-5. Deploy realizado na Azure na URL: https://mymoviesapp.azurewebsites.net/
+2. Consumo API do TMDB para exbição dos filmes e avaliações;
+4. Utilização do cache para evitar algumas chamadas recorrentes na API do TMDB para buscar gêneros de filmes, filmes populares e filmes mais bem avaliados;
+5. Autenticação de usuários JetStream;
+6. Banco de dados MySQL hospedado na Azure Cloud;
+7. Deploy realizado na Azure na URL: https://mymoviesapp.azurewebsites.net/
 
 # Instruções para Execução do Projeto Localmente
 ## Passo 1: Criar o Arquivo `.env`
