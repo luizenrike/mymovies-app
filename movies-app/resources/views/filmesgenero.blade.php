@@ -15,7 +15,7 @@
                     @foreach($filmes as $filme)
                     <div class="col-md-2  mb-3">
                         <div class="card zoom-card d-flex">
-                            <a href="#" tooltip="tooltip" title="{{$filme['title']}}">
+                            <a href="{{url('/filme/'.$filme['id'])}}" tooltip="tooltip" title="{{$filme['title']}}">
                                 <img src="https://image.tmdb.org/t/p/w500/{{$filme['poster_path']}}" class="img-card" alt="imagem do filme {{$filme['title']}}">
                             </a>
                             <div class="card-body d-flex flex-column card-bg">

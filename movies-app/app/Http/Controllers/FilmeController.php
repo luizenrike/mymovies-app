@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FavoriteMovie;
+use Exception;
+use GuzzleHttp\Exception\RequestException;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\Empty_;
+
+use function PHPUnit\Framework\isEmpty;
+use function PHPUnit\Framework\isNull;
 
 class FilmeController extends Controller
 {
@@ -177,5 +183,67 @@ class FilmeController extends Controller
             'generos' => $generos,
             'search' => $search
         ]);
+    }
+
+    public function filmeDetails(int $id, Request $request){
+        $client = new \GuzzleHttp\Client();
+
+        $user = $request->user();
+
+        $isFavorite = null;
+        if($user){
+            $isFavorite = FavoriteMovie::where('user_id', $user->id)
+                               ->where('movie_id', $id)
+                               ->first();
+        }
+
+        $favoriteMovieUser = 0;
+
+        if($isFavorite != null)
+            $favoriteMovieUser = 1;
+
+
+        try{
+            $response = $client->request('GET', "https://api.themoviedb.org/3/movie/{$id}?language=pt-BR", [
+                'headers' => [
+                    'Authorization' => 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhNWJlNjQ3YTg5NjZkNzZjNzk2ZTM5NWM0ZTJiMTIyNSIsIm5iZiI6MTcyNDg3MzU2Mi45NjA3NzcsInN1YiI6IjY2Y2U1NGUwYzY4NjgxZGI0ZGEwOTI0ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7or274I22Ko1GfvWl70PbEq1OpjQCkpvuV3mS_3mnxk',
+                    'accept' => 'application/json',
+                ],
+            ]);
+
+            $responseTrailer = $client->request('GET', "https://api.themoviedb.org/3/movie/{$id}/videos?language=pt-BR", [
+                'headers' => [
+                  'Authorization' => 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhNWJlNjQ3YTg5NjZkNzZjNzk2ZTM5NWM0ZTJiMTIyNSIsIm5iZiI6MTcyNDg3MzU2Mi45NjA3NzcsInN1YiI6IjY2Y2U1NGUwYzY4NjgxZGI0ZGEwOTI0ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7or274I22Ko1GfvWl70PbEq1OpjQCkpvuV3mS_3mnxk',
+                  'accept' => 'application/json',
+                ],
+              ]);
+
+            $trailerJson = json_decode($responseTrailer->getBody(), true);
+            $filme = json_decode($response->getBody(), true);
+
+            $trailers = $trailerJson['results'];
+            if(!empty($trailers))
+                $trailer = $trailers[0];
+            else
+                $trailer = ['key' => "notfound"];
+
+            
+
+            return view('filmedetalhe', [
+                'filme' => $filme,
+                'trailer' => $trailer,
+                'isFavorite' => $favoriteMovieUser
+            ]);
+
+
+
+        }catch(RequestException $ex){
+            if($ex->getResponse()->getStatusCode() == 400){
+                abort(404);
+            }else{
+                return redirect('/')->with('fail-search', 'Não foi possível encontrar filme');
+            }
+        }
+
     }
 }

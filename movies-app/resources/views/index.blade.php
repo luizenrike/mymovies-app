@@ -15,7 +15,7 @@
                 @foreach($filmesPopulares as $filmePopular)
                 <div class="col-md-2">
                     <div class="card zoom-card d-flex">
-                        <a href="#" tooltip="tooltip" title="{{$filmePopular['title']}}">
+                        <a href="{{url('/filme/'.$filmePopular['id'])}}" tooltip="tooltip" title="{{$filmePopular['title']}}">
                             <img src="https://image.tmdb.org/t/p/w500/{{$filmePopular['poster_path']}}" class="img-card" alt="Poster do filme {{$filmePopular['title']}}">
                         </a>
                         <div class="card-body d-flex flex-column card-bg">
@@ -31,7 +31,7 @@
                 @foreach($filmesTopRated as $filmeTopRated)
                 <div class="col-md-2">
                     <div class="card zoom-card d-flex">
-                        <a href="#" tooltip="tooltip" title="{{$filmeTopRated['title']}}">
+                        <a href="{{url('/filme/'.$filmeTopRated['id'])}}" tooltip="tooltip" title="{{$filmeTopRated['title']}}">
                             <img src="https://image.tmdb.org/t/p/w500/{{$filmeTopRated['poster_path']}}" class="img-card" alt="Poster do filme {{$filmeTopRated['title']}}">
                         </a>
                         <div class="card-body d-flex flex-column card-bg">
@@ -48,7 +48,7 @@
                     @foreach($filmesPaginados as $filme)
                     <div class="col-md-2  mb-3">
                         <div class="card zoom-card d-flex">
-                            <a href="#" tooltip="tooltip" title="{{$filme['title']}}">
+                            <a href="{{url('/filme/'.$filme['id'])}}" tooltip="tooltip" title="{{$filme['title']}}">
                                 <img src="https://image.tmdb.org/t/p/w500/{{$filme['poster_path']}}" class="img-card" alt="imagem do filme {{$filme['title']}}">
                             </a>
                             <div class="card-body d-flex flex-column card-bg">

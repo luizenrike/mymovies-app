@@ -14,6 +14,65 @@ body{
     text-transform: uppercase;
 }
 
+.text-white-info{
+    color: white;
+    text-align: justify;
+}
+
+.container-details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center; 
+}
+.img-detail {
+    width: 300px;
+    height: 400px; 
+    margin: 0 auto; 
+    object-fit: cover; 
+}
+
+.img-detail-fav {
+    width: 150px;
+    height: 200px; 
+    margin: 0 auto; 
+    object-fit: cover; 
+}
+
+.info-favorite-container{
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 20vh; 
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 20vh; 
+}
+
+.trash-icon{
+    font-size: 30px;
+}
+
+.bottom-right-icon {
+    float: right;
+    color: #dee2e6;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.shadow-container {
+    box-shadow: 0 4px 8px rgba(125, 114, 173, 0.2); 
+    padding: 15px; 
+    border-radius: 20px; 
+    background: #04131E; 
+}
+
+
 .card{
     border: none;
     width: 150px;
@@ -129,5 +188,41 @@ body{
 .pagination-sm .page-link {
     padding: 0.25rem 0.5rem;
     font-size: 0.875rem;
+}
+
+.btn-favorite {
+    width: 50px; 
+    height: 50px; 
+    background-color: #ff4500; 
+    color: white; 
+    border: none; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    cursor: pointer; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease; 
+}
+
+.btn-favorite-add {
+    width: 50px; 
+    height: 50px; 
+    background-color: #00ff37; 
+    color: white; 
+    border: none; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    cursor: pointer; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease; 
+}
+
+.movie-logo{
+    width: 150px; 
+    height: 30px;
+    border-radius: 10%; 
 }
 
