@@ -10,6 +10,14 @@ use Illuminate\Http\Request;
 
 class FavoriteMovieController extends Controller
 {
+    /**
+     * Save a favorite movie to a user's favorites list
+     * 
+     * @param int $movieId
+     * @param Request $request
+     * 
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(int $movieId, Request $request)
     {
 
@@ -26,6 +34,12 @@ class FavoriteMovieController extends Controller
 
         return redirect()->back()->with('success', 'Novo filme adicionado aos favoritos!');
     }
+
+    /**
+     * Show a user's favorite movies
+     * @param Request $request
+     * @return \Illuminate\View\View|\Illuminate\Http\RedirectResponse
+     */
 
     public function filmesFavoritos(Request $request)
     {
@@ -60,6 +74,13 @@ class FavoriteMovieController extends Controller
         ]);
     }
 
+    /**
+     * Deletes a movie from the user's favorites list
+     * @param int $movieId
+     * @param Request $request
+     * 
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy(int $movieId, Request $request)
     {
         $user = $request->user();

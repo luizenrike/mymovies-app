@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class PublicFavoriteMovieController extends Controller
 {
+    /**
+     * Show favorite list by username
+     * 
+     * @param string $username
+     * 
+     * @return \Illuminate\View\View|\Illuminate\Http\RedirectResponse
+     */
     public function getListaFavoritos(string $username){
         $client = new \GuzzleHttp\Client();
         $favoriteMovies = PublicFavoriteMovie::where('username', $username)->get(); 

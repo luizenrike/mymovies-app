@@ -16,6 +16,11 @@ use function PHPUnit\Framework\isNull;
 
 class FilmeController extends Controller
 {
+    /**
+     * Show all movies in index page
+     * 
+     * @return  \Illuminate\View\View
+     */
     public function index(Request $request): View
     {
         $client = new \GuzzleHttp\Client();
@@ -90,6 +95,11 @@ class FilmeController extends Controller
         ]);
     }
 
+    /**
+     * Show all movies by Genre Id
+     * @param int $idGenero
+     * @return \Illuminate\View\View|\Illuminate\Http\RedirectResponse
+     */
     public function filmesPorGenero(int $idGenero, Request $request)
     {
         $cacheTime = 30;
@@ -141,6 +151,10 @@ class FilmeController extends Controller
         ]);
     }
 
+    /**
+     * Returns movies by search input
+     * @return \Illuminate\View\View
+     */
     public function filmesSearch(Request $request)
     {
         $cacheTime = 30;
@@ -185,6 +199,12 @@ class FilmeController extends Controller
         ]);
     }
 
+
+    /**
+     * Return movie details by movie id
+     * @param int $id
+     * @return \Illuminate\View\View|\Illuminate\Http\RedirectResponse
+     */
     public function filmeDetails(int $id, Request $request){
         $client = new \GuzzleHttp\Client();
 
